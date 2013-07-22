@@ -2,6 +2,10 @@
 
 namespace Malenki;
 
+/**
+ * Simple little class to have iterated list with first, last but one, last, 
+ * void features.
+ */
 class IterList implements Iterator, Countable, ArrayAccess
 {
     private $int_position = 0;
@@ -109,6 +113,12 @@ class IterList implements Iterator, Countable, ArrayAccess
 
 
 
+    /**
+     * Add new item into the list.
+     *
+     * @param mixed $item
+     * @return null
+     */
     public function add($item)
     {
         $this->arr_items[] = $item;
@@ -117,6 +127,11 @@ class IterList implements Iterator, Countable, ArrayAccess
 
 
 
+    /**
+     * Into loop, this method checks if the current item is the first.
+     *
+     * @return boolean
+     */
     public function first()
     {
         return $this->int_position == 0;
@@ -124,6 +139,13 @@ class IterList implements Iterator, Countable, ArrayAccess
 
 
 
+    /**
+     * Into loop, this method checks if the current item is last but one.
+     *
+     * If current list has only one item, this method returns False.
+     *
+     * @return boolean
+     */
     public function lastButOne()
     {
         if($this->count() > 1)
@@ -136,6 +158,11 @@ class IterList implements Iterator, Countable, ArrayAccess
 
 
 
+    /**
+     * Is the list void?
+     *
+     * @return boolean
+     */
     public function void()
     {
         return $this->count() == 0;
@@ -143,6 +170,11 @@ class IterList implements Iterator, Countable, ArrayAccess
 
 
 
+    /**
+     * True if the list has only one element.
+     *
+     * @return boolean
+     */
     public function hasOnlyOne()
     {
         return $this->count() == 1;
@@ -150,6 +182,11 @@ class IterList implements Iterator, Countable, ArrayAccess
 
 
 
+    /**
+     * In a loop context, checks if the current element is the last of the list.
+     *
+     * @return boolean
+     */
     public function last()
     {
         return $this->int_position == $this->count() - 1;
