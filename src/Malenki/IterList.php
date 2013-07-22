@@ -6,7 +6,7 @@ namespace Malenki;
  * Simple little class to have iterated list with first, last but one, last, 
  * void features.
  */
-class IterList implements Iterator, Countable, ArrayAccess
+class IterList implements \Iterator, \Countable, \ArrayAccess
 {
     private $int_position = 0;
 
